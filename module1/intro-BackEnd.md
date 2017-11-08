@@ -354,3 +354,32 @@ a POST request after a user fills out a form, the form data would be sent within
 ---
 
 #### Module 1 | Intro to Back-End Web Development   HTTP   HTTP Responses
+
+# HTTP Responses
+
+Web servers use HTTP to send responses to clients who have made requests.
+
+HTTP response message consists of a status line, an optional header and an optional message body.
+
+![format](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bd16affabcc96ee9e93e729b97b15c38/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/HTTP_Response_Message.png)
+
+The **status line** tells the client the result of the requested operation. Status codes are written using 3 digit codes. You may have seen a few of these codes if you've ever run into a missing webpage or an error online. The most common are:
+
+* **200**: This code means "OK". This status is sent when the server completed operation successfully.
+
+* **400**: This code means "Bad Request". This status is sent when the server couldn't understand the client request.
+
+* **404**: This code means "Not Found". This status is sent when the server could not locate the requested resource.
+
+Similarly to HTTP request messages, response messages also contain headers and a body.
+
+The **header** contains optional metadata about the response. The details of header fields are out of scope for this 
+course.
+
+The **body** contains any data or resource the server is providing in response to the request. This can be an HTML 
+file the client requested, or data from the database.
+
+
+---
+
+#### Module 1 | Intro to Back-End Web Development   Web APIs   What is an API?

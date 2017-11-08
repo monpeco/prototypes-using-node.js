@@ -118,3 +118,58 @@ The backend of a web app must be able to:
 ---
 
 #### Module 1 | Intro to Back-End Web Development   Intro to Back-End Web Development   Structure of the Backend
+
+# Structure of the BackEnd
+
+The backend, or server-side, of a web application consists of several components, commonly referred 
+to as **tiers** or **layers**. We refer to the backend as the server-side of a web app because the 
+backend of a web application is hosted on a web server.
+
+The most common layers of a web application are:
+
+* **the presentation layer**: This layer is part of the client-side of an application and refers to 
+the user interface of an application. The user interface of a web app includes any HTML, CSS and 
+JavaScript code that runs in the browser to display the webpages that make up the app's interface.
+
+* **the application layer**: This layer handles the logic that makes the web application function. 
+This refers to any of the operations and algorithms that must be carried out in the background in 
+order to handle the business operations of the app.
+
+* **the data layer**: This layer stores, organizes and manages access to an application's data 
+using a database.
+
+Web applications can be built in several different ways. Sometimes the application layer will be part 
+of the client-side, sometimes it will be shared across the client-side and server-side, and sometimes 
+it will be part of the server-side.
+
+In this course, we'll handle a majority of application logic in the backend. This means that if your 
+app needs to process data before it can be displayed, you'll write the code for most of that processing 
+on your server, the server will return that processed data, and all the client will need to do is 
+display it appropriately.
+
+
+![web-app](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c06a145f3512a466e36321cdb9416a10/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/clients_server.png)
+
+
+The web server handles requests for web content and serves the content to clients. This involves 
+identifying the resources that a client is asking for, such as the homepage html file, or a css 
+stylesheet, and returning those resources. Both static websites and dynamic web apps utilize web 
+servers to handle requests for web resources.
+
+In addition to a web server, web applications also contain an application server. This is the 
+component you will program to handle the logic and algorithms that your app needs to perform. 
+This includes handling requests from the client for data, communicating with the database, 
+performing any necessary changes or modifications, and then returning that data to the client.
+
+The database is where the data for an application is stored. The database stores, organizes and 
+provides access to an application's data.
+
+In summary, a web server will contain an application server that correlates to the application 
+layer of your app, and a database which correlates to the data layer of your app. These are the 
+2 components that you will program as the back-end developer.
+
+We'll take a deeper look at each of these components throughout this course.
+
+---
+
+#### Module 1 | Intro to Back-End Web Development   HTTP   Intro to HTTP

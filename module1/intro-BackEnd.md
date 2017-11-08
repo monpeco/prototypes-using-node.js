@@ -173,3 +173,95 @@ We'll take a deeper look at each of these components throughout this course.
 ---
 
 #### Module 1 | Intro to Back-End Web Development   HTTP   Intro to HTTP
+
+# Intro to HTTP
+
+https://youtu.be/o51UEv5x6UA
+
+At this point, we know that web applications consists
+of client-side code that runs in the browser,
+and server-side code that runs the brains of the application.
+And we know that the client and
+server communicate with each other to transfer data.
+Communication requires understanding of the same
+language.
+It's pretty difficult for someone who speaks English to
+communicate to someone speaking Chinese, for example.
+The same is true on the web.
+In order for clients and servers to be able to communicate,
+there needs to be a common language and guidelines so
+that all parties know how to communicate in a standard way.
+The protocol used for web communication is called HTTP.
+HTTP stands for Hyper Text Transfer Protocol.
+This protocol defines the rules and standards for
+communicating and transferring data using the Internet.
+With HTTP, these communications between clients and
+servers take place using a request and response model.
+Clients make requests for data,
+such as requesting an HTML file for a web page or
+requesting a list of items to populate a page with.
+HTTP defines request methods that allow all clients to make
+these requests in a standardized way.
+This is how clients specify whether they are asking for
+data, providing data or deleting data.
+Servers listen for these requests,
+interpret them to perform the appropriate actions, and
+respond appropriately to the client.
+HTTP provides several response methods that standardize how
+servers can respond to clients.
+These response methods include a way for
+the server to let the client know whether or
+not the requested operation was successful.
+To summarize this process, a client,
+which in this case is a web browser, is running HTML, CSS,
+and JavaScript to display a web page.
+The code needs to display dynamic data such as the latest
+status on an item.
+The client sends an HTTP request to the web server requesting
+this data.
+The web server receives the request and
+interprets it to determine what action to take.
+It communicates with the database to obtain
+the appropriate data, and then sends an HTTP response that
+includes an OK status along with that data.
+The client receives this response and
+displays the data on the page as desired.
+In the upcoming lessons,
+we'll take a deeper look at the methods that HTTP defines for
+requests and responses and we'll look at how clients and
+servers use these methods to transfer data on the web.
+
+
+# What is HTTP?
+
+As we discussed in the last lesson, web applications consist of a client-side and a server-side component, and there 
+is data exchanged between those components. 
+
+In order for clients to be able to communicate with web servers, there needs to be a common language, or protocol, 
+that provides rules for how the communication should occur.  The protocol used for Web communication is called **HTTP**, 
+which stands for **HyperText Transfer Protocol**. 
+
+HTTP defines a set of rules for how clients and servers communicate.  In short, HTTP is the language that all Web 
+clients and servers speak to one another.
+
+All interactions that use HTTP are based on requests and responses- that's the only way clients and servers can 
+communicate.
+
+Clients send **HTTP requests** to servers to request resources, data or actions on data.
+
+Servers send **HTTP responses** to clients after handling the requests appropriately.
+
+HTTP defines **request methods** and **response methods** that clients and servers use to communicate.
+
+The actions that can be performed with HTTP correlate to the CRUD operations:
+
+* creating data
+* reading data
+* updating data
+* deleting data
+
+We'll take a deeper look at these request and response methods in upcoming lessons.
+
+---
+
+#### Module 1 | Intro to Back-End Web Development   HTTP   HTTP Requests

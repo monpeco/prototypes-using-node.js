@@ -102,3 +102,88 @@ In the upcoming lessons, we'll learn more about Node.js and get started setting 
 ---
 
 #### Module 2 | Node Basics   Node Basics   Node Setup
+
+# Getting Started with Node.js
+
+Now that you have a basic understanding of what we can use Node.js for, lets take a look at the basics 
+of working with Node.js.
+
+This lesson will give you an overview of some concepts and tools that you'll be working with in the next 
+exercise.
+
+
+### Steps to create a web server using Node.js
+
+1. Import the proper modules that will help you develop your app.
+2. Set up a server to listen for http requests.
+3. Configure server to receive and respond to http requests
+    a. Work with database to obtain data for response
+    b. Perform logic and algorithms, if needed, to prepare response
+
+Once Node.js starts a server and initializes variables and functions, it is simply waiting for requests to come in.
+
+
+### Ports
+
+In computer networking, a **port** is a destination or communication endpoint. When we use Node.js to set up 
+a web server on our computers, we'll have to specify which port the Node.js app should be listening on. 
+You can think of a port similar to an airport or shipping terminal. Each port has an address that is used 
+to send information to. We'll use port 3000 for the exercises this course.
+
+
+### Node Package Manager (npm)
+
+The **Node Package Manager (npm)**, comes packaged with your Node.js installation. It allows you to quickly and 
+easily install other add-ons (frameworks and libraries) to use with your Node.js projects.
+
+Many of these packages will be the dependencies that your project needs in order to work. A dependency is a 
+package that your project depends on for any reason. For example, if you're using a function that you didn't 
+write yourself that is defined as part of another framework or library, your project depends on that framework 
+or else it won't be able to access that function.
+
+Npm also provides an online database of public packages that allows you to access packages that other developers 
+have created. Using external libraries, packages and frameworks makes it easier to develop code for your projects 
+without spending time rewriting code that others have already spent time on. Instead, you can simply install a 
+package and integrate it in your project.
+
+We'll use npm to install several frameworks and modules that we'll need for this course.
+
+
+### Modules
+
+**Modules** are collections of functions that you can utilize in your Node.js application. This allows you to 
+easily incorporate existing code that is written for a specific scenario, which helps you focus on your app's behavior.
+
+For example, we'll be using the **http** module and the **express** module in our apps.
+
+You will add a module to your project using the `require()` function, passing in the name of the module.
+
+For example, `require('express');` includes the express module in your project.
+
+**Note**: Use single quotes `(' ')` instead of double quotes `(" ")` in your Node.js files, except for when you are 
+writing in json
+
+
+### The http module
+
+The **http** module is a module that is built into Node.js. It allows HTTP communication with your Node.js server.
+
+You'll use the `createServer` method that is part of the http module to create a server that listens to http 
+requests and provides http responses.
+
+
+### The package.json file
+
+Every Node.js project contains a **package.json** file. This file contains metadata about your project, such as the 
+project title, version #, author(s), etc. More importantly, it lists the dependencies that your project has- listing 
+each dependency and the version of each dependency that your project needs.
+
+Node.js will use the information in this file to install the correct dependencies when you set up your project.
+
+You'll run the `npm init` command to setup your project, which uses the information from your **package.json** file to do so.
+
+In the next lesson, we'll walk through the process of setting up a simple Hello, World! server using Node.js.
+
+---
+
+#### Module 2 | Node Basics   Node Basics   Lab: Hello, World with Node.js

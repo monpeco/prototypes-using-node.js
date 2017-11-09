@@ -562,3 +562,21 @@ If we were creating the API for the Q&A app from previous examples,  each of the
 ---
 
 #### Module 1 | Intro to Back-End Web Development   Summary   Module 1 Summary
+
+If you made it through to the end of this module, you should be able to speak the lingo of a back-end web developer! 
+
+We explored what exactly the back-end refers to, and the role web servers play in the functioning of web applications. 
+
+We took a look at HTTP, the protocol that allows communication between web clients and servers over the 
+Internet.  We identified the HTTP request method types that align the CRUD operations applications should 
+support: GET, PUT, POST and DELETE.
+
+We then took a deeper look at how the web servers we build in upcoming modules wil support requests from clients.  
+An API will define a set of endpoints that align with the HTTP requests we expect from clients.  These endpoints 
+consists of an HTTP request type and a URI.
+
+In the next module, we'll take a look at Node.js, the framework that will allow us to write JavaScript code to 
+handle all of the server-side functionality we've discussed so far.  The next module will allow you to build a 
+basic web server that can handle and respond to requests from web clients. 
+
+----

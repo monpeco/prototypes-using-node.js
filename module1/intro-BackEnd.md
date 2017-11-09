@@ -482,3 +482,66 @@ relevant to our web app.
 ---
 
 #### Module 1 | Intro to Back-End Web Development   Web APIs   Defining APIs
+
+# Defining RESTful Web APIs
+
+In this course, we'll create *RESTful* APIs on our application servers, which our clients will interact with. 
+**REST** stands for **REpresenational State Transfer**. This can be a complex topic. We won't dive too deep 
+into REST concepts, but there are a few important, but simple, ideas to understand as we build a basic 
+RESTful API.
+
+### REST Overview
+
+We know that the function of the back-end of a web app is to listen for and handle requests from clients. 
+These requests revolve around data. In a RESTful system, all data is represented in terms of resources. 
+Many systems can be designed in this way.
+
+You can think of resources in your web app as the big data objects that represent entities your app 
+needs to work with. For example, if you are designing a Question & Answer forum, the data or resources 
+involved are:
+
+* questions
+* answers
+* users
+
+What can you do with these resources? All operations boil down to CRUD operations:
+
+* Creating data
+* Reading data
+* Updating data
+* Deleting data
+
+For example, in the case of the questions in a Q&A forum, users should be able to:
+
+* create: post a new question
+* read: view a question or view a list of questions
+* update: modify a question
+* delete: delete a question
+
+So in summary, REST revolves around the idea of resources and actions on those resources. 
+You create a RESTful API to identify the resources that make up your app, and then handle the 
+CRUD operations that a client will want to perform using those resources. The important outcome 
+in a RESTful system is that the server and client never need to remember anything about the resources. 
+Everything can take place based on requests and responses using the CRUD operations.
+
+The most common way to implement a RESTful Web API is using HTTP. 
+
+### Web Api format
+
+Our Web API will simply consist of a set of routes that match the types of HTTP requests we expect our clients to make.  Each API endpoint is defined by:
+
+* an HTTP method type (GET, PUT, POST or DELETE)
+* a URI 
+
+This is exactly the same information that an HTTP request includes.  Our API is simply telling the server which of these requests to pay attention to, and how to respond when each type of request comes in.
+
+If we were creating the API for the Q&A app from previous examples,  each of the following might be a separate API endpoint on the app server:
+
+* `POST /questions`
+* `GET /questions:3`
+* `GET /questions`
+* `PUT /questions:2`
+
+---
+
+#### Module 1 | Intro to Back-End Web Development   Summary   Module 1 Summary

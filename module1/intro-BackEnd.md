@@ -312,6 +312,14 @@ Clients use the HTTP DELETE method to delete resources from the server.
 
 HTTP request messages consist of a request line, an optional header and an optional message body.
 
+HTTP Request message have:
+1. A request Line
+  * Request Method (GET, POST, PUT or DELETE)
+  * A URI (where the request is made)
+  * HTTP Version
+2. A Header (optional)
+3. A Message Body (optional). If is a POST request, the data of the form will be here
+
 ![format](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/d304e594309d9e7b493cd7cb8a98ed5b/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/HTTP_Request_Message.png)
 
 ### The Request Line
@@ -364,6 +372,11 @@ a POST request after a user fills out a form, the form data would be sent within
 Web servers use HTTP to send responses to clients who have made requests.
 
 HTTP response message consists of a status line, an optional header and an optional message body.
+
+HTTP Response message have:
+1. A Status Line (3 digit codes such as 200: OK, 400: Bad Request, 404: Not Found)
+2. A Header (optional)
+3. A Message Body (optional). This contains the data that the server is providing, it can be an HTML file, or data from the server
 
 ![format](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bd16affabcc96ee9e93e729b97b15c38/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/HTTP_Response_Message.png)
 

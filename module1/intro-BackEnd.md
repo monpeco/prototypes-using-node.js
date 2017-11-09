@@ -383,3 +383,102 @@ file the client requested, or data from the database.
 ---
 
 #### Module 1 | Intro to Back-End Web Development   Web APIs   What is an API?
+
+
+# What is an API?
+
+There are several models that developers use to structure
+web applications.
+The way that we'll set up our application server in this
+course is by creating what's called an API.
+An API, or an Application Programmable Interface,
+is a set of tools that a client can interact with to perform
+specific tasks or handle specific requests.
+You can think of an API similar to a restaurant menu that
+contains a set of meals that you can order.
+The menu allows you to order something that is already
+packaged into a meal,
+instead of having to worry about the details of all of
+the ingredients and how they are prepared.
+As a guest, you order from the menu,
+someone else does the work of preparing the entree and
+it's returned to you as a complete meal.
+The menu also serves as a contract that the restaurant
+provides to let you know what you'll receive.
+Similarly, by defining an API on your server,
+you'll create a set of high level options that clients can
+use to interact with your back end and access its data.
+Instead of each client having to directly query the database for
+each piece of data it needs, it can simply call an API method on
+your server and get the result that is desired.
+The API serves as a contract that lets the client
+know what information it needs to get the API and
+what data it will get as a result.
+The client does not have to worry about what happens on
+the server in order to produce this results.
+For example, the Facebook API allows developers of apps
+to connect to it and
+request information about a user's profile,
+such as their friends list.
+These developers don't have to write the code to look through
+the person's friends list manually and
+they can simply call the API and receive the result.
+We'll define a server-side web API on our server
+that allows clients to request and
+update information relevant to our web app.
+This is where clients will send HTTP requests to and
+receive data from.
+In upcoming lessons we'll take a deeper look at how we can define
+APIs and
+write the codes to perform the task we want to expose.
+
+
+
+# Application Programming Interfaces
+
+Now that we understand the functions and components of a web back-end and how clients and web servers communicate, 
+let's take a look at exactly how we'll program our server to handle the requests that come from clients.
+
+Recall from the HTTP lessons that HTTP requests include a request method (**GET*, *PUT*, *POST* or *DELETE*) and a URI to 
+identify a resource to operate on.  
+
+In order to handle these requests, you can write code on your web server that will tell the server what to do 
+based on the type of request that comes in.  Creating a Web API is a way of doing just that.
+
+### WHAT IS AN API?
+
+The way that we'll set up our application server in this course is by creating what's called a web API.  
+
+An API, or application programming interface, is a set of components that define how a set of functionalities 
+can be accessed by others.  APIs allow developers to take advantage of code written by others.  If a developer 
+writes a large library of code to perform specific tasks, another developer can easily access that library 
+using the API endpoints that are defined for it.  
+
+Think of a restaurant menu that contains a set of meals that you can order.  The menu allows you to order 
+something that is already packaged into a meal, instead of having to worry about the details of all of the 
+ingredients and how they are prepared.  As a guest, you order from the menu, someone does the work of 
+preparing the entree, and it's returned to you as a complete meal.  
+
+In the same way, an API allows developers to access functionality through a menu of commands that prevent 
+the developer from having to understand exactly how the functions are being performed.  The developer simply 
+calls the command and receives the result of the operation.
+
+### Web APIs
+
+Similarly, by defining a web API on your server, you'll create a set of high-level options that clients 
+can use to interact with your back-end and access it's data. Instead of each client having to directly 
+query the database for each piece of data it needs, they can simply call an API method on the server and 
+get the desired result. All the client will need to know is what information the API needs, and what 
+data will be returned as a result. The client does not have to worry about what happens on the server 
+in order to prodcue this result.
+
+For example, the Facebook API allows developers of apps to connect to it and request information about 
+a user's profile, such as their friends list. These developers don't have to write the code to look 
+through the person's friend list manually, and can simply call the API and receive the result.
+
+We'll define a server-side web API on our server that allows clients to request and update information 
+relevant to our web app.
+
+---
+
+#### Module 1 | Intro to Back-End Web Development   Web APIs   Defining APIs

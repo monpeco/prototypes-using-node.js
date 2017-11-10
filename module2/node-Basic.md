@@ -654,3 +654,38 @@ In this exercise you:
 
 ---
 
+#### Module 2 | Node Basics   Project   Overview
+
+# Set Up a Web API for Your Project
+
+Now that you've practiced using Node.js and Express to build web apps and APIs, it's time to to apply what you've learned to your own course project.
+
+The following guide will walk you through the process of setting up the Node.js project for your application server, and using Express to define routes that align to your app's API.
+
+### Assignment
+
+**Create a Node.js application that:**
+
+* Uses Express to define routes
+* Provides an API with at least 4 endpoints
+* Returns JSON data, when appropriate, for HTTP requests
+* Returns the static files that make up your app's front-end
+
+Your app should be stored in a GitHub (or local Git) repository.
+
+### Planning Ahead
+
+Looking at the problem
+
+Before writing code to achieve a goal, you should break the problem down into a set of smaller steps. Here's how we'll 
+approach this part of your project:
+
+* Setup project directory
+* Initialize Node.js project
+* Define routes that return sample data
+
+In the next module, you will complete this project by hooking your app up to a database. For now, you'll return sample 
+data in place of stored data.
+
+The following pages will walk you through these steps
+

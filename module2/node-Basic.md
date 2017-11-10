@@ -187,3 +187,216 @@ In the next lesson, we'll walk through the process of setting up a simple Hello,
 ---
 
 #### Module 2 | Node Basics   Node Basics   Lab: Hello, World with Node.js
+
+# Hello, World! in Node.js
+
+In this exercise, you will familiarize yourself with Node.js by setting up a simple server. The server will 
+respond to requests with a "Hello, World!" message and will also print "Hello, World!" to the console when 
+it starts running.
+
+You will need...
+
+In this exercise, we'll use:
+
+* A command prompt
+* A code or text editor. These instructions will be based on using Visual Studio Code.
+* Node.js installation
+* A web browser
+
+Before you start...
+
+Make sure that you have installed Node.js on your computer before starting this exercise.
+
+You can find instructions for installing Node.js on the [Node.js website](https://nodejs.org/en/download/package-manager/#windows). 
+
+Once you have installed Node.js, verify that your installation was successful. Type the following command into your command prompt:
+
+```
+node -v
+```
+
+This should display the Node.js version that you have installed. If it does not, you have a problem with your Node.js installation.
+
+### Exercise
+
+1. Create a directory to store this Node.js project
+
+Create a folder on your computer named hello-node:
+
+You can do this in the command line by typing: `mkdir hello-node` in the location where you wish to create the folder.
+
+In the command prompt, navigate into the folder you just created.
+
+cd hello-node
+
+
+
+2. Setup Node.js Project
+
+Complete steps 1-2 in your command prompt.
+
+Run the `npm init command`, which will initialize a Node.js project in your folder and set up a default package.json file.
+
+```
+npm init
+```
+
+
+You will be prompted to enter information about your project. Use the following:
+
+For the description field, enter "My first Node.js project".
+
+For the entry-point field, enter "server.js".
+
+Accept the default values for all other fields, by pressing enter.
+
+
+
+Press enter at the end to accept all values when prompted.
+
+You have now setup a folder that you can use for a Node.js project.
+
+
+
+### Setup Server File
+
+Node.js relies on the package.json file to understand the basic information and dependencies for every Node.js project.
+
+Open your hello-node folder using Visual Studio Code.
+
+In Visual Studio Code: select File>Open Folder then navigate to your hello-node folder and select select folder.
+
+You should see the package.json that has been created in your folder.
+
+In the same folder, create a file called **server.js**.
+
+Open the server.js file in your Visual Studio Code editor window.
+
+Create a variable to access the http module:
+
+```
+var http = require('http');
+```
+
+This will give you access to the `http` module in your project. The http module helps your server handle http requests and responses.
+
+Create a variable to store the port # your server will run on.
+
+```
+var port = 3000;
+```
+
+This is the port your server will use to listen for requests. Clients will send requests to this port to access the server.
+
+Create a function that will handle requests from clients, called requestHandler.
+
+```
+ var requestHandler = function(request, response){
+     console.log('New request to: ' + request.url);
+     response.end('Hello, World!');
+ }
+```
+
+This sets up a function that will handle requests from clients. This function has parameters to accept a request and reponse object. 
+The function uses the request object to identify the url the request was sent to. It uses the response object to create and send 
+a response message.
+
+Use the `http.createServer` method to create a `server` object. The `http.createServer` method expects a function to handle requests. 
+We'll use the function we created in step 6.
+
+```
+var server = http.createServer(requestHandler);
+```
+
+Instruct the server to listen for requests on the port you defined. Also provide a callback function that will be run after the server 
+begins listening on the port.
+
+```
+server.listen(port, function()
+{
+ console.log('listening on port ' + port);
+});
+```
+
+
+This tells the server to start listening for requests on the port specified and then run the code in the function provided. In this 
+case, that function is printing a message to the console.
+
+Save your changes to server.js. Your file should contain the following:
+
+```
+ var http = require('http');
+ var port = 3000;
+
+ var requestHandler = function(request, response){
+     console.log('Request came from: ' + request.url);
+     response.end('Hello, World!');
+ }
+
+ var server = http.createServer(requestHandler);
+
+ server.listen(port, function(){
+     console.log('Listening on port ' + port);
+ });
+```
+ 
+### Run Your Server
+
+Right now, the server will not run the code you've written, until it's told to. We need our server to begin listening for requests, 
+and we do so by using Node.js to run the server.
+
+In your command prompt, navigate into the folder that contains your Node.js project- hello-node.
+
+Run the server using the node command.
+
+```
+node server.js
+```
+
+You should see a message in your console window telling you the server is listening.
+
+### Send a Request to Your Server
+
+The primary purpose of a server is to handle http requests from clients. Try accessing your server using your browser, which 
+will send an http request to the server. Let's see what happens.
+
+Open your web browser.
+
+Enter your server URL into the address bar:
+
+```
+localhost:3000.
+```
+
+localhost translates to 127.0.0.1, which is the address of the computer the browser is currently running on. This is followed 
+with a colon and the port number.
+
+I've typed `localhost:3000` since my server is listening on port 3000 on my computer.
+
+You should see the text "Hello, World!" displayed on the page, since that's the message you printed from the `requestHandler` 
+function, which handled this request from the browser.
+
+In the command line, you should now see a message letting you know what path on your server was requested, based on the URL the 
+client accessed.
+
+For example, typing `localhost:3000` sends the request URL `/`, since you are accessing the root of the server.
+
+Typing `localhost:3000/hello/world` uses the request URL `/hello/world` based on the path you typed beyond the server root.
+
+
+Notice that the path you enter doesn't currently change what happens on your server. We'll soon change this so that different 
+URL paths correspond to different API endpoints.
+
+### Summary
+
+In this exercise you:
+
+* Initialized a Node.js project
+* Created an http server using Node.js
+* Started running a Node.js server in the command line
+* Tested your Node.js http server using your browser to send requests
+
+
+---
+
+#### Module 2 | Node Basics   Building APIs with Express   Express Overview

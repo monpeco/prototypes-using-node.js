@@ -400,3 +400,19 @@ In this exercise you:
 ---
 
 #### Module 2 | Node Basics   Building APIs with Express   Express Overview
+
+# Using Express with Node.js
+
+**Express** is a web application framework for Node.js. Although you could use Node.js on its own, using a framework allows you to avoid spending time on the common features of web apps. Instead, you can focus on the unique features of your app, and use a framework to efficiently handle the aspects that your app has in common with most others.
+
+Express is a framework that makes it easy to build web APIs and apps with Node.js.
+
+The primary way that we'll use Express in this course is to route HTTP requests that are made to your server.
+
+With Express, you can easily define routes that control how your server handles different types of requests, which translates to your API.
+
+In the next lesson, we'll learn more about the core concepts that you'll need to understand to use Express. 
+
+---
+
+#### Module 2 | Node Basics   Building APIs with Express   Express Setup

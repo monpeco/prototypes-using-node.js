@@ -689,3 +689,97 @@ data in place of stored data.
 
 The following pages will walk you through these steps
 
+---
+
+#### Module 2 | Node Basics   Project   Setup
+
+# Part 1: Setup Your Project Files
+
+In this section, you will setup the directory for your project, storing your files in a Git repo.
+
+### Before you start...
+
+This assignment assumes you have already developed the client-side part of your project, including HTML, CSS and client-side 
+JavaScript for your webpage(s).
+
+You should have these files stored in a Git repo, and we'll assume you currently have the following file structure:
+
+* HTML files at the root of the project folder.
+* styles/ folder containing CSS stylesheets
+* scripts/ folder containing client-side JavaScript
+
+For example, you should have a similar set of files directly within your repo:
+
+```
+index.html
+about.html
+order.html
+styles/
+      style.css
+      custom.css
+scripts/
+      script.js
+      slideshow.js
+```
+
+### Guide
+
+Use your file explorer to move your entire set of client-side files into a folder called /public.
+Git repo for project:
+
+```
+public/
+ index.html 
+ about.html 
+ order.html 
+ styles/ 
+     style.css 
+     custom.css 
+ scripts/ 
+     script.js 
+     slideshow.js
+```
+	 
+You will set express app up to serve static client-side files from the public folder.
+
+In your command line, navigate into your project folder on your computer.
+
+    cd MyProject
+
+The exact path you use will depend on the location of your folder.
+
+If for any reason you have not previously set up a Git repo for your project, initialize 
+a Git repo within the folder containing your project files.
+
+Initialize a Node.js project within the root of your project folder.
+
+    npm init
+
+You will be prompted to enter fields for the package.json file that will be created.
+
+Enter a name that makes sense for your app
+
+Enter your name as the author
+
+Enter server.js as the entry point.
+
+At the end of this step, you should have a package.json file in the root your project folder.
+
+Install Express and save it as a dependency for your project.
+
+    npm install express --save
+
+This should install Express, add it to a node_modules folder within your project folder, and list it 
+as a dependency in your package.json file.
+
+### Verify the following:
+
+* Your folder should contain a node_modules folder. You should see your Express installation within that folder.
+* Your folder should contain a package.json file with the appropriate fields for your app.
+* Your folder should contain a public/ folder, which contains your HTML, CSS and JavaScript files for your front-end.
+
+In the next section, you will use Node.js and Express to create a basic HTTP server
+
+---
+
+#### Module 2 | Node Basics   Project   Create Server

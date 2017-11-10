@@ -416,3 +416,59 @@ In the next lesson, we'll learn more about the core concepts that you'll need to
 ---
 
 #### Module 2 | Node Basics   Building APIs with Express   Express Setup
+
+# Getting Started with Express
+
+Now that you have a basic understanding of what we can use Express for, lets take a look at the basics of using Express to build a web API.
+
+This lesson will give you an overview of some concepts and tools that you'll be working with in the next exercise.
+
+### Steps to create a web API using Express with Node.js
+
+1. Import the proper modules that will help you develop your app. You'll need to import an `Express` module in order to use Express.
+2. Set up a server to listen for http requests. Express makes this step simpler than using Node.js alone.
+3. Configure server to receive and respond to http requests
+    a. Set up routes that specify how to handle different http requests.
+    b. Work with database to obtain data for response
+    c. Perform logic and algorithms, if needed, to obtain response
+
+### Routing
+
+**Routing** is a fundamental aspect of developing a web API with Express. Routing refers to the process of defining how 
+the app will respond to client requests to particular API endpoints.
+
+An **endpoint** refers to a unique combination of http request type and request URI/path.
+
+For example, a client may send a**GET** request to a **/questions** API in order to retrieve a list of questions. We might 
+refer to this endpoint as `GET '/questions'`.
+
+A different endpoint on the same server might be `POST '/questions'`.
+
+Express allows us to set up a route to handle each API endpoint. For each route, we'll provide a callback function that 
+Express will run once a client sends a request to that endpoint.
+
+### What About Our Client-Side Files?
+
+You may be wondering how your client-side HTML, CSS and JavaScript files integrate with your server-side app.
+
+There are several web app development models, such as the commonly used MVC pattern, where the backend of your app directly 
+modifies your client-side files on the server. In such scenarios, the server-side code directly inserts data into HTML templates 
+before returning those files to the client.
+
+In this case, since we are developing a web API for our backend, our server will simply be responding to the client with data 
+when requested. Therefore, our client-side files will be sending requests for that data, and then filling the data into the 
+HTML file appropriately within the browser.
+
+This process of simply returning files without modifying them is called **serving static files**. We'll keep our static HTML, 
+CSS and JavaScript files for our front-end in a public folder on our server, and Express will simply return those files as-is 
+when the browser requests them.
+
+The following line of code in your project file will accomplish this:
+
+    app.use(express.static('public'));
+    
+In the next lesson, we'll walk through how to set up an Express app using Node.js.
+
+---
+
+#### Module 2 | Node Basics   Building APIs with Express   Lab: Hello, World with Express

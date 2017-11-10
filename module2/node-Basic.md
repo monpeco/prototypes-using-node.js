@@ -553,13 +553,13 @@ This will give you access to the express module in your project.
 
     var app = express();
 
-Create a variable to store the port # your server will run on.
+5. Create a variable to store the port # your server will run on.
 
-var port = 3000;
+    var port = 3000;
 
 This is the port your server will use to listen for requests. Clients will send requests to this port to access the server.
 
-Use the express `listen` function to instruct the server to start listening, passing in the port variable for 
+6. Use the express `listen` function to instruct the server to start listening, passing in the port variable for 
 the port number.
 
     app.listen(port, function(){
@@ -568,7 +568,7 @@ the port number.
      
 This tells the server to start listening for requests on the port specified and then to run the code in the function provided. In this case, that function is printing a message to the console when the server starts listening.
 
-Save your file. You should have the following code in your file:
+7. Save your file. You should have the following code in your file:
 
     var express = require('express');
     var app = express();
@@ -583,12 +583,74 @@ Save your file. You should have the following code in your file:
 Right now, the server will not run the code you've written, until it's told to. We need our server to begin listening 
 for requests, and we do so by using Node.js to run the server.
 
-In your command prompt, navigate into the folder that contains your Node.js project- hello-express.
+8. In your command prompt, navigate into the folder that contains your Node.js project- hello-express.
 
-Run the server using the node command.
+9. Run the server using the node command.
 
     node server.js
 
-You should see a message in your console window telling you the server is listening.
+10. You should see a message in your console window telling you the server is listening.
 
+### Setup Routes to Handle Requests
+
+1. Try sending a request to your server. Open your browser and type localhost:3000 in the address bar. Make sure your server is 
+still running in your command prompt.
+
+You should see an error message. This is because the client (your browser) is trying to send an HTTP GET request to the server, 
+but the server doesn't have any instructions on how to handle that.
+
+We need to define routes to handle incoming requests.
+
+2. Lets first handle the most route that our browser just tried to access: **GET ' / '** . This is the request that is sent when 
+you try to access the root (homepage) of your server.
+
+Use the express app.get function to create a route for the GET  ' / ' endpoint.
+
+app.get('/', function(request, response){
+    response.send('Hello, World!');
+});
+
+This sends an HTTP response that includes the message "Hello, World!" whenever a GET request is made to the ' / ' path.
+
+3. Save your changes to **server.js**. Your file should contain the following:
+
+    var express = require('express');
+    var app = express();
+    var port = 3000;
+    
+    app.get(`/`, function(request, response){
+        response.send('Hello, World!');
+    });
+    
+    app.listen(port, function(){
+        console.log('Express app listening on port ' + port);
+    });
+
+### Send a GET request to your server
+
+1. Make sure your server is still running on your port. If not, rerun your server:
+
+    node server.js.
+
+2. Open your web browser.
+3. Enter the URL localhost:3000.
+4. Your browser should display the message "Hello, World!", since that's the message outputted from the app.get function, which handled this request from the browser.
+5. Now try entering a different path on your server, such as "localhost:3000/hello".
+
+Notice that this attempt returns an error message reading Cannot GET /hello or something similar.
+
+This is because we have not defined any route to deal with the /hello path.
+
+Keep in mind that you will need to make sure all routes that make up your API are defined in your express app.
+
+### Summary
+
+In this exercise you:
+
+* Installed Express as a dependency for a Node.js project
+* Created an HTTP server using Express
+* Created a route using Express that responds to an HTTP request
+
+
+---
 

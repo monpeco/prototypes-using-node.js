@@ -472,3 +472,123 @@ In the next lesson, we'll walk through how to set up an Express app using Node.j
 ---
 
 #### Module 2 | Node Basics   Building APIs with Express   Lab: Hello, World with Express
+
+# Hello, World! with Express
+
+In this exercise, you will familiarize yourself with Express by setting up a simple server-side API. The server will 
+respond to requests with a "Hello, World!" message and will also print "Hello, World!" to the console when it starts running.
+
+### You will need...
+
+In this exercise, we'll use:
+
+* A command prompt
+* A code or text editor. These instructions will be based on using Visual Studio Code.
+* Node.js installation
+* A web browser
+
+### Before you start...
+
+Make sure that you have installed Node.js on your computer and that you're familiar with the basics of Node from the previous section.
+
+Exercise
+
+1. Create a directory to store this Node.js project
+
+Create a folder on your computer named **hello-express**:
+
+You can do this in the command line by typing: mkdir hello-express in the location where you wish to create the folder.
+
+In the command prompt, navigate into the folder you just created.
+
+cd hello-express
+
+2. Setup Node.js Project with Express Dependency
+
+Complete steps 1-2 in your command prompt.
+
+  a. Run the npm init command, which will initialize a Node.js project in your folder and set up a default package.json file.
+
+    npm init
+
+  b. You will be prompted to enter information about your project. Use the following:
+
+For the description field, enter "My first Express project".
+
+For the entry-point field, enter "server.js".
+
+Accept the default values for all other fields, by pressing enter.
+
+You have now setup a folder that you can use for a Node.js project.
+
+  c. Use your command prompt to install Express and save it as a dependency for your project:
+
+    npm install express --save
+    
+This command will install express in your project's directory and add it as a dependency in your project's `package.json` file.
+
+Your project can now access the express module and the functions it provides.
+
+  4. Open your hello-express folder using Visual Studio Code.
+
+In Visual Studio Code: select File>Open Folder then navigate to your hello-express folder and select select folder.
+
+You should see the package.json that has been created in your folder.
+
+Also note that you have a new sub-folder node_modules. This folder contains the modules you've installed as dependencies. This folder now contains the express module since we've installed it and saved it into the package.json file.
+
+### Setup Basic Server
+
+1. In the same folder, create a file called server.js.
+
+2. Open the server.js file in your Visual Studio Code editor window.
+
+3. Create a reference to the express module:
+
+    var express = require('express');
+
+This will give you access to the express module in your project.
+
+4. Use the express function to create an express app object. This will always be the first step we'll take to use express in our project:
+
+    var app = express();
+
+Create a variable to store the port # your server will run on.
+
+var port = 3000;
+
+This is the port your server will use to listen for requests. Clients will send requests to this port to access the server.
+
+Use the express `listen` function to instruct the server to start listening, passing in the port variable for 
+the port number.
+
+    app.listen(port, function(){
+         console.log('Express app listening on port ' + port);
+     });
+     
+This tells the server to start listening for requests on the port specified and then to run the code in the function provided. In this case, that function is printing a message to the console when the server starts listening.
+
+Save your file. You should have the following code in your file:
+
+    var express = require('express');
+    var app = express();
+    var port = 3000;
+    
+    app.listen(port, function(){
+        console.log('Express app listening on port ' + port);
+    });
+ 
+### Run your server
+
+Right now, the server will not run the code you've written, until it's told to. We need our server to begin listening 
+for requests, and we do so by using Node.js to run the server.
+
+In your command prompt, navigate into the folder that contains your Node.js project- hello-express.
+
+Run the server using the node command.
+
+    node server.js
+
+You should see a message in your console window telling you the server is listening.
+
+

@@ -783,3 +783,36 @@ In the next section, you will use Node.js and Express to create a basic HTTP ser
 ---
 
 #### Module 2 | Node Basics   Project   Create Server
+
+# Part 2: Create a Node.js Server
+
+In this section, you will setup a basic web application server with Node.js.
+
+### Guide
+
+1. Open your project folder in Visual Studio Code. Make sure to open using the Open Folder view so that you can easily see and navigate all files within your folder.
+
+2 Create a file in your project folder root called server.js.
+
+3. Add Express to your project and create an Express app object.
+
+```javascript
+var express = require('express');
+var app = express();
+```
+
+4. Instruct the express app to listen on port 3000, or another port of your choice. The server should then print a message to the console to make it easier for you to ensure your server is running.
+
+```javascript
+ app.listen(3000, function(){
+     console.log('Server is listening on port 3000');
+ });
+```
+
+Run your server and verify that the message is printed to your console.
+
+    node server.js
+
+---
+
+#### Module 2 | Node Basics   Project   Initialize Node Project

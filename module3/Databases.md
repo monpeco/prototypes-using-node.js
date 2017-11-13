@@ -75,3 +75,79 @@ talk about the structure of databases in the next lesson.
 ---
 
 #### Module 3 | Databases   Intro to Databases   Database Structures
+
+# Database Formats
+
+We know that databases store data, which is made up of collections of attributes called records. 
+How do you imagine these data records being stored in a database?
+
+There are many different formats for storing data, and thus several types of databases that store 
+data in different ways.
+
+Perhaps the data is stored in text files where each line contains a single record, and the 
+attributes, or fields, of a record are defined with a separator between each field.
+
+![record](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a5973c4292dcafaadc8126b9fb00af73/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/db_text_file.png.png)
+
+
+```javascript
+{
+name: Thomas Axen;
+email: taxen@email.com; 
+phone_number: 555-555-5555 
+}
+```
+
+Perhaps each data record is stored as a row in a table, where each column stores the value of an attribute.
+
+![row-table](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/6f189447be2eb745924feba4bd3cccbe/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/db_table.png)
+
+Relational Databases
+
+The type of databases we'll be focusing on in this course are relational databases, which utilize the 
+table format of organizing data. Relational databases are common and widely used.
+
+A relational database can consist of multiple tables, where each table represents a single entity or 
+resource type. For example, a Contacts table and a Conversations table might be stored in a single 
+database to organize the data related to contacts, and the conversations between them. Each table 
+would include a data record on each row, and the attribute values for that record in the corresponding 
+columns.
+
+Relational databases make it possible to specify relationships between data elements, such as linking 
+a specific set of contacts to a specific conversation wihtout repeating data. There is a lot you can 
+learn about relational databases, but this course will focus on the fundamental concepts you'll need 
+in order to understand concepts and build something using a basic database.
+
+
+### Example
+
+The following table is an example of how data would be represented in a relational database. Keep in 
+mind that a relational database would likely contain other tables in the same database that are 
+related to one another.
+
+The following table, the Contacts table, stores a collection of contacts. The database containing 
+this table might also contain a Conversations table to keep track of the date, time and duration of 
+conversations between contacts. For simplicity in this introductory course, however, we'll focus on a 
+single table. Your project prototype should be functional with only a single table.
+
+Here's a sample Contacts table:
+
+![contact](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/74a738205f12ff8a58bc79fc47f8c20c/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/Contacts.png)
+
+This is a relational database table. In this table, data is stored in the following way:
+
+* The collection of contacts is stored in the Contacts table.
+* Each contact is stored as a record in the table, which corresponds to a table row. There are 6 records currently stored in the table above.
+* Each record includes the following fields, or attributes: ID, FirstName, LastName, EmailAddress, PhoneNumber, ZipCode. The values for each field of a record are stored as a column in the table on the corresponding row.
+* Each row contains all attributes associated with a single record
+* Each column contains all of the data for a specific attribute/field. For example, the PhoneNumber column contains all of the phone numbers for the contacts stored in the table.
+* The attributes in each column match the data type of the attribute. For example, the ZipCode column only contains numeric data.
+
+In the upcoming lessons, we'll explore SQL and SQLite, the relational language and database management system we'll be using in this course.
+
+
+---
+
+#### Module 3 | Databases   Getting Started with SQL and SQLite   How to use Databases
+
+

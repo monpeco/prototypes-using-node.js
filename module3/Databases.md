@@ -377,3 +377,57 @@ In the following lessons, we'll take a look at how to build some SQL statements 
 ---
 
 #### Module 3 | Databases   Building SQL Statements   Working With Relational Databases
+
+# Working with Relational Databases
+
+Before jumping into building SQL statements and queries, let's review the basic structure and concepts related to relational databases.
+
+SQL Tables and Data Types
+
+Remember from our introduction to databases that relational database tables store data in rows and columns. Each row is a data record, which consists of columns that store various attributes for the record.
+
+Each attribute column has a name and a data type associated with it.
+
+![table](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/74a738205f12ff8a58bc79fc47f8c20c/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/Contacts.png)
+
+### String Data Types
+
+In the Contacts table above, the 2nd column's name is FirstName and the type of data being stored is a string of 
+characters. There are a few SQL data types we could use to store this data.
+
+CHARACTER(n): character data can be stored as a CHARACTER(n) type when all strings need to have the same number 
+of characters. The CHARACTER(4) type would mean all values in the column need to be strings of 4 characters.
+
+VARCHAR(n): character data can be stored as a VARCHAR(n) type when the strings can vary in length. The VARCHAR(4) 
+type would mean that all values in the column need to be strings with a maximum length of 4 characters.
+
+In this case, we'd use the VARCHAR type since we don't know that the length of every contact's first name would 
+be exactly the same. VARCHAR(255) will store a character string up to 255 characters long.
+
+### Numeric Data Types
+
+The most common ways to store numeric data are using the INTEGER or DECIMAL type
+
+DECIMAL(p, s): stores a numeric value. DECIMAL(3,2) would store a number with 3 digits before the decimal point 
+and 2 digits after, such as 123.45 or 934.30.
+
+INTEGER: stores a numeric value with no decimal, such as 320 or 3.
+
+### Primary Keys
+
+In relational database tables, it's important that each record can be uniquely identified in some way. One or more 
+columns in the table is used as the unique identifier, known as the primary key. If a column is denoted as the 
+primary key for a table, that means that no 2 records in the table can have the same value in that column.
+
+Choosing a primary key that makes sense for your data is important. For example, there may be 2 or more records 
+in the Contacts table that have the same first and last name. For that reason, you wouldn't want to use first or 
+last name as the primary key for this data. Instead, we'd use the id column as the primary key, since no 2 records 
+should share the same id.
+
+### Additional Data Types and Considerations
+
+You can find other data types in the SQLite documentation. Keep in mind that each DBMS uses a slightly different 
+version of the SQL language.
+
+---
+

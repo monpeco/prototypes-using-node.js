@@ -150,4 +150,50 @@ In the upcoming lessons, we'll explore SQL and SQLite, the relational language a
 
 #### Module 3 | Databases   Getting Started with SQL and SQLite   How to use Databases
 
+# How Are Databases Used?
 
+At this point, you know that a database is a collection of organized data. Now let's talk about how we 
+can access and take advantage of this organized data.
+
+When it comes to connecting your web app to a database, there are a few pieces to think about:
+
+1. The database- where your data is stored
+
+Your data is stored and organized in a database.
+
+2. The query language- what you want to do with your data
+
+A query language is used to define instructions for creating, accessing and modifying data in a database. 
+In this course, you'll learn Structured Query Language (SQL), an extremely popular and widely used query 
+language for relational databases. SQL statements and queries define the instructions for what to do with 
+your data, such as creating a new record, updating an attribute for a record, or deleting a record. SQL 
+makes it straightforward to define these instructions in a human-readable language.
+
+Note: SQL is often pronounced in 1 of 2 ways. Some people pronounce it as an acronym- saying each letter 
+of the word "S-Q-L". Others pronounce it as "Sequel". Both pronunciations are common.
+
+3. The database management system (DBMS)- how you access your database
+
+A DBMS is an application that allows you to interact with databases. Relational DBMS’s will understand 
+the SQL commands you write, and perform the appropriate operations on the data. Database management 
+systems ensure the data in a database remains be accurate, secure and consistent.
+
+Some common database management systems are SQL Server and MySQL. We'll be using a lightweight DBMS 
+called SQLite in this course.
+
+4. A server-side scripting language- how your web app connects to and interacts with your database (through your DBMS)
+
+You could use SQLite (or any DBMS) to create and modify databases in isolation. However, When it 
+comes to creating a database for a web app to store data, the process can't be manual. You'll need 
+to write code on your server to connect to and interact with the database.
+
+In this case, we're writing JavaScript on our servers (using Node.js). SQL is the language that directly 
+specifies the operations we want to perform on data, but we'll need to write some JavaScript code that 
+constructs these SQL queries on our server. Our server-side code will build SQL queries, format and return 
+the resulting data or status to clients.
+
+In the next lessons, we'll learn how to get up and running with SQLite in order to run SQL queries. 
+
+---
+
+#### Module 3 | Databases   Getting Started with SQL and SQLite   SQLite Intro

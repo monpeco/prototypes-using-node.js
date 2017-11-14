@@ -431,3 +431,105 @@ version of the SQL language.
 
 ---
 
+#### Module 3 | Databases   Building SQL Statements   Creating Data
+
+# Creating Data Using SQL
+
+Now that you understand the common types of data that can be stored in a database, let's look at how to create 
+tables to store the data, as well as how to insert data into those tables using SQL.
+
+We'll use the following sample Contacts table as a guide for what we'll try to recreate in the following examples.
+
+![table](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/74a738205f12ff8a58bc79fc47f8c20c/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/Contacts.png)
+
+### Create a Table
+
+To create a new table in your database, use the `SQL CREATE TABLE` command. You'll need to provide the name for 
+your table along with the information about what columns and type of data the table will store.
+
+The syntax for this command is:
+
+```sql
+CREATE TABLE TableName(
+    Column1 DataType1,
+    Column2 DataType2,
+    ColumnN DataTypeN
+);
+```
+
+Note: This statement could be written on a single line. It's much easier to read if separated across lines when 
+there are several column definitions.
+
+Example: The following SQL statement would create a database table that could hold the data in our Contacts table above:
+
+```sql
+CREATE TABLE Contacts(
+    id INTEGER PRIMARY KEY,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    EmailAddress VARCHAR(255),
+    PhoneNumber VARCHAR(255),
+    ZipCode VARCHAR(255)
+);
+```
+
+In this example, we use the **VARCHAR(255)** type for each attribute other than the id for simplicity. There is room for 
+improvement to be more precise with the data types and only use the maximum necessary size depending on the data being 
+stored.
+
+This results in the following empty database table named Contacts:
+
+![Empty Contacts Table](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/866a3251d3924db9cbd6d993af126390/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/contacts_empty.png)
+
+### Inserting Data into a Table
+
+To insert new records (or rows) into a table, use the SQL INSERT INTO statement. You'll need to provide the data you'd 
+like to insert in a way that makes sense for how the data should be organized. There are 2 ways to do this.
+
+Provide the values to be inserted into the table for the new record. You must provide a value for each column in the appropriate order.
+
+```sql
+INSERT INTO TableName VALUES (value1, value2, value3, ...)
+```
+
+For example, to insert a new record into the Contacts table above, we would provide a value for each of the six columns in the table.
+
+```sql
+INSERT INTO Contacts 
+    VALUES (12, 'John', 'Doe',
+        'JohnDoe@email.com', '999-999-9999', '29384'
+    );
+```
+
+Provide the column names and the values to be inserted into those columns. This allows you to provide data for only certain columns 
+(missing columns will be NULL).
+
+```sql
+INSERT INTO TableName (column1, column2, column3, ...) VALUES (value1, value2, value3, ...)
+```
+
+If you omit a column that is defined as an auto-incrementing primary key integer, that column will be automatically populated.
+
+For example, to insert a new record into the Contacts table, we can omit the ID value and specify the other 5 values. The ID 
+will be automatically generated since SQLite knows it must be a unique integer, based on it's primary key definition.
+
+```sql
+INSERT INTO Contacts (FirstName, LastName, EmailAddress, PhoneNumber, ZipCode) VALUES ('Thomas', 'Axen', 'taxen@email.com', '111-111-1111', '90110');
+```
+
+![Insert Record Contacts Table](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b939deba45f48cf988c38deab68b330a/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/contacts_insert1.png)
+
+### Summary
+
+* Use the CREATE TABLE statement to create a new table in your database.
+
+* You must provide a name for the table and define the schema for the table. This includes the column names and data types for each column.
+
+* The syntax for the CREATE TABLE statement is CREATE TABLE <TableName>(Column1 DataType1, Column2 DataType2, ...);
+
+* Insert data into a table using the INSERT INTO statement: INSERT INTO <TableName> <(Column1, Column2, ...)> VALUES <(Value1, Value2, ...)>; The Columns list is optional.
+
+
+---
+
+#### Module 3 | Databases   Building SQL Statements   Reading Data

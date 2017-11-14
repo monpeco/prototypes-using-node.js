@@ -899,3 +899,29 @@ performing on your own project database.
 ----------------------------------------------------------------------------------------------
 
 ### Module 3 | Databases   Querying Databases From a Node App   Connecting Node App to DB
+
+# Connecting Your Node.js App to a SQLite Database
+
+At this point, you should be comfortable using SQL to construct queries against a database to create, read, 
+update and delete data. You should also be comfortable using SQLite3's shell to run these SQL statements.
+
+However, you won't manually run these SQL statements each time your app needs to work with data. Instead, you 
+will hard-code SQL statements into your Node.js so that these statements are run when needed.
+
+For example, recall that you set up a GET route in your Node.js in the previous module. Right now, your app is 
+simply returning a sample statement when this route is triggered. Instead, your app should return a set of data 
+from the database.
+
+You can achieve this outcome by adding a SQL statement to your route that will pull from or insert into the 
+database when the route is called.
+
+Completing the prototype for your app is as simple as adding SQL statements to each of your route to perform 
+the appropriate CRUD operation, and returning the corresponding data to the client, where that data will be 
+interpreted and displayed appropriately using client-side JavaScript code.
+
+In the following lessons we'll walk through exactly how to add SQL statements to your Node.js app using a 
+sample application.
+
+---
+
+#### Module 3 | Databases   Querying Databases From a Node App   Exercise

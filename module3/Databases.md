@@ -533,3 +533,369 @@ INSERT INTO Contacts (FirstName, LastName, EmailAddress, PhoneNumber, ZipCode) V
 ---
 
 #### Module 3 | Databases   Building SQL Statements   Reading Data
+
+# Reading Data Using SQL
+
+The reason for using a database is to store data so that you can retrieve and use that data. Let's 
+talk about how to use SQL to retrieve data that is stored in a database.
+
+We'll use the Contacts table we've been working with for examples.
+
+![Contacts](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/74a738205f12ff8a58bc79fc47f8c20c/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/Contacts.png)
+
+
+### The SELECT Statement
+
+Retrieving data from a database is also known as querying the database. We construct queries in SQL 
+using the `SELECT` statement.
+
+There are many different ways you can identify, filter and organize data that you retrieve from a 
+database. You might simply want to view all of the data you have stored in a table, such as viewing 
+all of the info for each contact stored in the Contacts table. On the other hand, you may be searching 
+for a specific piece of information for a set of records that meets certain criteria, such as the 
+number of contacts that live in the zip code 90210.
+
+We'll introduce the basics and most common tasks you can perform using the `SELECT` statement so that 
+you have a foundation of understanding to build from if you need to use more complex statements.
+
+### Filtering by Column: The SELECT FROM Statement
+
+The `SELECT FROM` statement allows you to select specific columns from a specific table in your database.
+
+    SELECT Column1, Column2, ... FROM TableName;
+
+### Select All Columns
+
+The most basic SQL query is to select all of the data from a table- meaning all rows and all columns.
+
+The syntax for this statement is:
+
+    SELECT * FROM TableName;
+
+To select all of the data from our Contacts table, we'd use the following statement:
+
+    SELECT * FROM Contacts;
+
+The result of this statement (assuming this data has already been stored in the database) would be the 
+full Contacts table:
+
+### Select Specific Columns
+
+Sometimes, you may only want to select certain columns of data for a query. Instead of using the 
+asterick (*), you can provide 1 or more column names to query data from:
+
+    SELECT Column1, Column2, ... FROM TableName;
+
+For example, you might want to display only the first names of all contacts stored in the database:
+
+    SELECT FirstName FROM Contacts;
+
+This would return the following data set:
+
+![firstname](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f1e078677854f9e082164671b1ef46b7/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/contacts_firstnames.png)
+
+The following statement would select the first and last names from the Contacts table:
+
+    SELECT FirstName, LastName FROM Contacts; 
+
+![first-lastname](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a2704ae8fcf9f8daaa625c3e7ef4f26e/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/contacts_firstlast.png)
+
+### Filtering by Row: The SELECT FROM WHERE Statement
+
+The SELECT FROM statement allows you to select all rows from a table and narrow by column.
+
+Sometimes you'll only want to retrieve certain records (rows) based on criteria. For example, you might 
+want to retrieve the records for contacts who live in the zip code 90210. This is a way of filtering by row.
+
+The syntax for the SELECT FROM WHERE statement is:
+
+![where](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/d1af33dbc35b099ca9f909b19675892e/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/sql_where.png)
+
+### SQL Where Statement
+
+The WHERE clause consists of a condition based on the value of a column.
+
+For example, the following statement selects all columns for all rows for which the contact's first name is Roya.
+
+    SELECT * FROM Contacts WHERE FirstName = 'Roya';
+
+![firstName-Roya](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/110c94aa4dab714379e3f1fcef87a9cb/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/contacts_roya.png)
+
+The following statement selects only the first name (column) for any rows for which the contact's ID is 4 or less:
+
+    SELECT FirstName FROM Contacts WHERE ID <= 4
+
+![where-id](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/7d5b8a3f54c2aa1c19fcf436e4aff1cc/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/where_Id.png)
+
+There is a lot of flexibility with the `WHERE` clause. The condition you provide can be as simple as evaluating the 
+value in a column (such as `ID <= 4`)), or as complex as multiple conditions using several columns. You can use the 
+`AND` and `OR` keywords to combine conditions within a `WHERE` clause.
+
+For example, the following statement selects records for which the ID is less than 4 and the zip code is 90210:
+
+    SELECT * FROM Contacts WHERE ID <= 4 AND ZipCode = '90210';
+
+### Organizing Results - The ORDER BY clause
+
+So far, we've been able to pull data records and filter by column or row, but we haven't been able to control how 
+the results are organized. One way to do that is to modify the order that records are sorted in.
+
+The `ORDER BY` clause allows you to specify which column the results should be ordered based on, and whether the 
+order should sorted in ascending or descending order.
+
+The syntax for using this clause is:
+
+    SELECT Column FROM Table WHERE Condition ORDER BY Column1, Column2, ... [DESC];
+
+By default, ORDER BY uses ascending order. If you provide the DESC keyword, the results will be sorted in descending 
+order.
+
+For example, the following statement selects all rows and columns from our Contacts table and orders them in 
+descending order by ID:
+
+    SELECT * FROM Contacts ORDER BY ID DESC;
+
+Contacts Table Descending
+
+NOTE: Even if you are not including a column in your results, you may still order your results by that column.
+
+For example, the following statement returns only the first names of contacts ordered in descending order using 
+the ID column, even though the ID column is not included in the results:
+
+    SELECT FirstName FROM Contacts ORDER BY ID DESC;
+
+![firstName-id](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a534b77ca22d26652447fdab2e9bd069/asset-v1:Microsoft+DEV280x+4T2017+type@asset+block/firstname_desc.png)
+
+### Summary
+
+* The SELECT statement is used to query for data from a database
+* The syntax of the basic SELECT statement is SELECT <columns> FROM <table>;. This returns a table including the specified columns for all records.
+* The WHERE clause is used to filter specific rows. Only the records that meet the specified condition will be included in the results table.
+* The ORDER BY clause sorts the results table by the specified column(s)
+
+---
+
+#### Module 3 | Databases   Building SQL Statements   Updating Data
+
+# Updating Data Using SQL
+
+Once you've created and populated a database, you'll likely need to modify the data it stores. Perhaps 
+your database stores items for sale and the status of an item changes from 'listed' to 'sold'. Or perhaps, 
+using our Contacts table example, one of our contacts changes their phone number.
+
+Updating data in a relational database is straightforward, using the UPDATE statement.
+
+### The UPDATE Statement
+
+The UPDATE statement allows you to modify existing records in a database table. You can do a few things 
+with this statement, from changing one value in a specific column for a specific record, to updating the 
+value of a specific column for all records in the table.
+
+The syntax for the UPDATE statement is:
+
+    UPDATE <table> SET column1 = value1, column2 = value2, ... WHERE <condition>;
+
+The WHERE clause in this statement filters which records will be updated. If you omit the WHERE clause, 
+your update will affect all records in the table.
+
+The column + value pairs allow you to provide new values for specific columns in the table.
+
+### Example - Update a Single Record
+
+For example, the following statement updates the zip code for the record with an ID of 3 to 33333:
+
+    UPDATE Contacts SET ZipCode = '33333' WHERE ID = 3;
+
+In other words, this statement says: "Find the record(s) with an ID equal to 3 and set the zip code to '33333'.
+
+After executing this statement on our original Contacts table, it would contain the following:
+
+### Example - Update Multiple Columns for a Single Record
+
+We could modify more than 1 field for a record at once. The following statement updates the last name and 
+zip code for the contact with an ID of 4:
+
+    UPDATE Contacts SET LastName = 'Smith', ZipCode = '44444' WHERE ID = 4;
+
+### Example - Update Multiple Records
+
+If your WHERE clause returns multiple records, each of those records will be affected by your update.
+
+For example, the following statement updates the zip code for each record that currently has a zip 
+code of '90210'.
+
+    UPDATE Contacts SET ZipCode = '22222' WHERE ZipCode = '90210';
+
+### Example - Update All Records
+
+If you omit a WHERE clause in your UPDATE statement, your update will affect ALL records.
+
+For example, the following statement updates the zip code for all records to '00000':
+
+    UPDATE Contacts SET ZipCode = '00000';
+
+### Summary
+
+* You can update the values of records in a database using the UPDATE statement
+* The SET clause in this statement allows you to provide new values for certain columns
+* The WHERE clause in this statement allows you to specify which records (rows) should be updated
+* If you omit a WHERE clause, your change will affect all rows of the table
+
+
+---
+
+#### Module 3 | Databases   Building SQL Statements   Deleting Data
+
+# Deleting Data Using SQL
+
+The final CRUD operation you are able to perform on your data in a relational database is deleting 
+data. This can be in the form of deleting a table or deleting data from within a table.
+
+### Deleting Data
+
+Data can be deleted from a database table using the DELETE statement.
+
+    DELETE FROM <TableName> WHERE <condition>
+
+The WHERE clause filters which rows will be deleted from the table.
+For example, the following statement will delete the record with an ID of 5 from the Contacts table:
+
+    DELETE FROM Contacts WHERE ID = 5;
+
+The following statement will delete the records with a zip code of '90210' from the Contacts table:
+
+    DELETE FROM Contacts WHERE ZipCode = '90210';
+
+NOTE: If you do not include a WHERE clause, you will delete all of the rows from your table.
+
+### Deleting a Table
+
+You can use the DROP TABLE statement to delete a table from your database. Use this statement 
+wisely- you will be deleting all of the data associated with the table!
+
+    DROP TABLE <TableName>;
+
+For example, the following statement deletes the Contacts table:
+
+    DELETE TABLE Contacts;
+
+
+### Summary
+
+* The SQL DELETE statement is used to delete records from an existing database table. The WHERE clause specifies which records should be deleted
+* Omitting a WHERE clause in a DELETE statement will delete all records in the table
+* Use the SQL TRUNCATE statement to clear all records from a table
+* Use the SQL DROP TABLE statement to delete a table entirely from a database.
+
+---
+
+#### Module 3 | Databases   Building SQL Statements   SQL Practice
+
+# Practicing with SQL and SQLite
+
+Now that we've covered the basic SQL statements that will allow you to perform CRUD operations on 
+your database, take some time to practice building these statements and queries in your SQLite shell.
+
+Exercise
+
+Use the SQLite3 shell in your command prompt to execute SQL statements.
+
+Remember, to run the SQLite shell enter the command sqlite3 **<DatabaseName.db>**, with the name of a 
+database file.
+
+### Guide
+
+* Open a New Database in SQLite3
+
+* Run the SQLite3 shell with a new database file named Exercise.db by entering the following command in your command prompt:
+
+    sqlite3 Exercise.db
+
+This should open the SQLite3 shell in your command prompt.
+
+* Create a Table
+
+Create a table called Contacts with the following shcema:
+```
+* ID: integer, primary key
+* FirstName: varchar(255)
+* Age: integer
+* PhoneNumber: varchar(255)
+```
+```sql
+CREATE TABLE Contacts(
+    ID INTEGER PRIMARY KEY,
+    FirstName VARCHAR(255),
+    Age INTEGER,
+    PhoneNumber VARCHAR(255)
+);
+```
+
+Remember, each part of this statement can be entered on a separate line in your command prompt. Just be sure to end the final 
+statement with a semicolon.
+
+You can use the .tables SQLite3 command to list the tables in your database. This should display the name of the Contacts 
+table if you performed step 1 correctly.
+Note: you can find documentation for all SQLite3 options and commands by entering `.help` in your SQLite3 shell.
+
+### Populate the Table
+
+Populate the table with 6 entries to achieve the following data set:
+
+Use the SELECT * statement to verify that your database contains the correct data.
+
+* Insert First Record
+
+Here's the code for the first entry:
+
+```sql
+INSERT INTO Contacts
+(ID, FirstName, Age, PhoneNumber) 
+VALUES (1, 'Thomas', 32, '111-111-1111');
+```
+
+Verify that you have properly entered all 6 entries by executing a SELECT * statement to pull all rows.
+
+TIP: For readability, you can increase the width of columns for your results tables. The following SQLite3 command will set 
+the width of each display table column to 10 characters:
+
+    .mode column .width 10.
+
+### Query for Data
+
+* Execute a query to view all records in descending order by age.
+
+    SELECT * FROM Contacts ORDER BY Age DESC;
+	
+* Execute a query to view only the ages of each contact, in descending order by ID.
+
+    SELECT Age FROM Contacts ORDER BY ID DESC;
+	
+Try it yourself: Execute a query to display all records for contacts with an age of at least 30.
+
+* Execute a query to display all records for which age is less than 35 and ID is less than 5.
+   
+   SELECT * FROM Contacts WHERE Age < 35 AND ID < 5;
+   
+### Modify and Delete Data
+
+Update the phone number for the record with ID = 4 to '400-400-4000'.
+
+    UPDATE Contacts SET PhoneNumber = '400-400-4000' WHERE ID = 4;
+
+Verify the change using a SELECT statement.
+
+Try it yourself: Delete the record with FirstName = 'Kim' from the table
+
+    DELETE FROM Contacts WHERE FirstName = 'Kim'
+
+Verify that the record has been deleted using a SELECT statement.
+
+Continue to practice building statements with this database based on the operations you're thinking about 
+performing on your own project database.
+
+
+
+----------------------------------------------------------------------------------------------
+
+### Module 3 | Databases   Querying Databases From a Node App   Connecting Node App to DB

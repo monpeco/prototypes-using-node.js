@@ -1,0 +1,11 @@
+{
+  "name": "myproject2",
+  "version": "1.0.0",
+  "description": "\"My second express project with sqlite\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -925,3 +925,16 @@ sample application.
 ---
 
 #### Module 3 | Databases   Querying Databases From a Node App   Exercise
+
+# Exercise - Add SQL Statements to a Node.js Project
+
+We'll continue working with the hello-express app from the previous module for this exercise. Open the 
+hello-express folder from the previous module in Visual Studio Code.
+
+### Install the SQLite Module
+
+The first step to connecting your Node.js app to a SQLite3 database is to install the SQLite3 module. 
+Run the following command in your command prompt from within your hello-express folder:
+
+npm install sqlite3 --save
+

@@ -936,5 +936,147 @@ hello-express folder from the previous module in Visual Studio Code.
 The first step to connecting your Node.js app to a SQLite3 database is to install the SQLite3 module. 
 Run the following command in your command prompt from within your hello-express folder:
 
-npm install sqlite3 --save
+    npm install sqlite3 --save
+
+This will install the sqlite3 Node module and add it as a dependency in your hello-express package.json file. 
+Now you'll be able to use the sqlite3 module from your app.
+
+### Import the SQLite Module
+
+In order to add the SQLite Module to your Node.js project, add the following line of code in your 
+server.js file:
+
+    var sqlite3 = require('sqlite3');
+
+Add the following line of code to create a database named 'HelloExpress' to be saved in a file 'HelloExpress.db':
+
+    var db = new sqlite3.Database('HelloExpress.db');
+
+### Create a Table and Populate with Sample Data
+
+The easiest way to setup and populate a table in your database is to do so manually using the SQLite shell.
+
+Open the HelloExpress.db database in the SQLite shell from your command prompt (within your hello-express folder):
+
+    sqlite3 HelloExpress.db
+
+Create a table named Quotes
+
+    CREATE TABLE Quotes(Quote VARCHAR(255), Author VARCHAR(255));
+
+Insert sample data so that it's easier to test as you work:
+
+    INSERT INTO Quotes VALUES ('Life is Short', 'Unknown');
+
+Run a SELECT statement to ensure your table contains data:
+
+    SELECT * FROM Quotes;
+    
+### Define SQL Queries for Routes
+
+All that remains now is to add SQL statements to your routes as needed.
+
+For example, let's start by creating a GET '/quotes' route and adding a SELECT statement that returns 
+all of the quotes from the database.
+
+Add the following code to your server.js file:
+
+```javascript
+app.get('/quotes', function(request, response){
+    db.all("SELECT * FROM Quotes", function(err, rows){
+        console.log("GET Quotes, The database currently contains the following rows: " + rows);
+        response.send(rows);
+    });
+});
+```
+* This defines a route for the API endpoint GET /quotes.
+* When this endpoint is reached, it will trigger the SQL `SELECT *` statement to retrieve all stored quotes
+* `db.all` is used to run a SQL SELECT statement and retrieve all resulting rows
+* The function we pass to `db.all` is a callback function. This function runs after the SQL `SELECT` statement completes. In this case, we are sending the resulting rows to the client in this function using `response.send(rows)`
+
+Test this route:
+
+1. Run your server in the command prompt using the node server.js command.
+2. Open your browser and navigate to localhost:3000/quotes.
+
+You should see the data from the database displayed in JSON form on the webpage. This data can now 
+be interpretated and rendered properly using client-side JavaScript code.
+
+Add the following code to your server.js file to create a route that queries for all quotes by a specific author.
+
+```javascript
+app.get('/quotes/:author', function(request, response){
+    db.all("SELECT * FROM Quotes WHERE Author = ? ",
+            [request.params.author], 
+            function(err, rows){
+                console.log("GET request for author: " + request.params.author);
+                response.send(rows);
+            });
+});
+```
+
+This defines a route for the `GET /quotes/:author` route, which accepts a parameter for the Author name and 
+uses a `SELECT FROM WHERE` statement to look for quotes by that author.
+
+Add the following code to your server.js file to create a route that handles the `POST /quotes` endpoint:
+
+```javascript
+app.post('/quotes', function(request, response){
+    db.run("INSERT INTO Quotes VALUES ?", req.body);
+});
+```
+This route uses the `db.run` method to run a SQL `INSERT` statement. You can use the db.run method to run any 
+SQL statement other than the SELECT statement. (Use the `db.all` method for SQL `SELECT` statements like we 
+did in the example above)
+
+The `?` in the INSERT statement is a placeholder for the POST data we wish to insert. We fill this in with 
+the `request.body` object, which contains the data that was sent with the request.
+
+Conclusion
+
+Your server.js file should contain the following:
+
+```javascript
+var express = require('express');
+var app = express();
+var port = 3000;
+var sqlite3 = require('sqlite3');
+var db = new sqlite3.Database('HelloExpress.db');
+
+app.get(`/` function(request, response){
+    response.send("Hello, World");
+});
+
+app.get(`/quotes`, function(request, response){
+
+   db.all("SELECT * FROM Quotes", function(err, rows){
+        console.log("GET Quotes: The database currently contains the following: " + rows);
+
+        response.send(rows);
+    });
+});
+
+app.get(`/quotes/:author`, function(request, response){
+
+   db.all("SELECT * FROM Quotes WHERE Author = ?", [request.params.author], function(err, rows){
+        console.log("GET Request for author: " + request.params.author);
+
+        response.send(rows);
+    });
+});
+
+app.post('/quotes', function(request, response) {
+    db.run("INSERT INTO Quotes VALUES ?", req.body)
+});
+
+app.listen(port, function(){
+    console.log("Express app listening on port " + port);
+});
+```
+
+---
+
+#### Module 3 | Databases   Querying Databases From a Node App   Project Guide
+
+
 

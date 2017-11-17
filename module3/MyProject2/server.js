@@ -9,31 +9,6 @@ var sqlite3 = require('sqlite3');
 
 var db = new sqlite3.Database('HelloExpress.db');
 
-// import request module
-// 'https://rails-test-cloned-github-heroku-monpeco.c9users.io:8080/',
-var request = require('request');
-request.post(
-    '/insert',
-    { json: {"Quote":"quote insert test","Author":"test"} },
-    function(error, response, body){
-        console.log('that');
-        if(!error && response.statusCode == 200){
-            console.log(body);
-        }
-    }
-);
-
-/* //original
-app.post('/quotes', function(request, response) {
-    db.run("INSERT INTO Quotes VALUES ?", request.body)
-});
-*/
-
-/* //another
-app.post('/insert', function(request, response){
-   response.send('This is a message'); 
-   console.log('This is a message');
-});*/
 
 app.listen(port, function(){
     console.log('My second project, this is with SQLite');

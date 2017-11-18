@@ -44,7 +44,11 @@ app.get('/quotes/:author', function(request, response){
 // curl -X POST rails-test-cloned-github-heroku-monpeco.c9users.io:8080/quotes -H "Content-Type: application/json" -d "{'author': 'Alguien', 'quote': 'Dijo algo'}"
 app.post('/quotes', function(request, response){
     console.log("POST: to the route!");
-    response.send('POST: This is a message');
+    db.run("INSERT INTO quotes (quote, author) VALUES ('This is another quote', 'someone')", function(err, rows){
+    console.log("POST request for: " + request.body);
+
+    response.send(rows);
+  });
 });
 
 // curl -X DELETE rails-test-cloned-github-heroku-monpeco.c9users.io:8080/quotes -H "Content-Type: application/json" 

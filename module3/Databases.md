@@ -1079,4 +1079,29 @@ app.listen(port, function(){
 #### Module 3 | Databases   Querying Databases From a Node App   Project Guide
 
 
+# Project Guide
+
+Now that you've completed the walk-through exercise using the hello-express project, you can similarly add SQL statements to your own Node.js project.
+
+### Guide
+
+* Identify what SQL statement is appropriate for each of the routes you've defined in your app.
+* For GET routes, you'll need to use a SQL SELECT statement. Use the db.all method to run a SQL SELECT statement in JavaScript.
+* For all other routes, use the db.run method to run the appropriate INSERT, UPDATE or DELETE SQL statement.
+* Use the response.send method to return data to the client.
+
+---
+
+#### Module 3 | Databases   Module 3 Summary   Module 3 Summary
+
+# Module 3 Summary
+
+In this module, you learned all about storing data. We introduced the concept of a database as a method of storing and structuring data. We walked through how to build SQL statements to create and manage data, and used SQLite as a database management system. Finally, we learned how to apply these concepts to a web app to connect a Node.js app to a SQLite database.
+
+At this point, you should have a web app prototype with an API that accepts and returns data from a database. You can now utlizie client-side JavaScript code on the front-end of your app using JQuery to send requests to the API you've built in this course. Once the client-side of your app requests data from your API, that data can be displayed as you wish in your web interface.
+
+A database is what makes apps dynamic by allowing the storage and organization of data, which is the foundation of most software applications.
+
+Now that you've got a functioning prototype, the last thing we'll do in Module 4 is use Azure to host your prototype live on the Web!
+
 

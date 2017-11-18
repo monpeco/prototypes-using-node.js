@@ -41,10 +41,24 @@ app.get('/quotes/:author', function(request, response){
             });
 });
 
-curl -X POST rails-test-cloned-github-heroku-monpeco.c9users.io:8080/quotes -H "Content-Type: application/json" -d "{'author': 'Alguien', 'quote': 'Dijo algo'}"
+// curl -X POST rails-test-cloned-github-heroku-monpeco.c9users.io:8080/quotes -H "Content-Type: application/json" -d "{'author': 'Alguien', 'quote': 'Dijo algo'}"
 app.post('/quotes', function(request, response){
     console.log("POST: to the route!");
     response.send('POST: This is a message');
+});
+
+// curl -X DELETE rails-test-cloned-github-heroku-monpeco.c9users.io:8080/quotes -H "Content-Type: application/json" 
+app.delete('/quotes', function(request, response){
+    console.log("request");
+    db.run("DELETE FROM Quotes WHERE Author='peter' ",function(err) {
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log("Successful");
+        }
+    });
+    response.send('DELETE Successful');
 });
 
 /* Test: https://rails-test-cloned-github-heroku-monpeco.c9users.io:8080/ */
